@@ -76,7 +76,7 @@ for g in genres:
 	print('Processing ' + g + "...")
 
 	# Set directory
-	my_path = "train/" + g + "/*.au"
+	my_path = "D:/PyCharmProjects/train/" + g + "/*.au"
 
 	# Get files
 	files = glob.glob(my_path)
