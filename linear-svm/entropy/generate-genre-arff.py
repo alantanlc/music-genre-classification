@@ -1,4 +1,9 @@
 import random
+import time
+
+# Get current time
+ts = time.localtime()
+time_str = time.strftime("%Y-%m-%d_%H-%M-%S", ts)
 
 # Load entropy file
 filename = 'entropy-raw.txt'
