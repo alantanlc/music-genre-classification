@@ -1,0 +1,150 @@
+extends layout
+
+block content
+	.row(style='height:100%; background-color: rgba(0, 0, 0, 0.6); ')
+		.col-lg-6(style='height:100%;')
+			br
+			br
+			br
+			.row
+				.col-1
+				.col-10
+					a(href='http://localhost:3000')
+						i.fas.fa-headphones(style='font-size:40pt;')
+					br
+					br
+					br
+					br
+					br
+					br
+					br
+					br
+					br
+					h1(style='font-size:40pt;') AMGC
+					br
+					p(style='font-size:15pt;') Automatic Music Genre Classification of Audio Signals with Machine Learning Approaches
+					form(method='POST', action='/recommend')
+						.form-row
+							.col-5
+								label(for='exampleFormControlFile1') Choose an audio file
+								input#exampleFormControlFile1.form-control-file(type='file')
+						.form-row
+							.col-5
+								br
+						.form-row
+							.col-3
+								input.form-control.btn.btn-primary(type='submit' value='Get Genre!')
+				.col-1
+			br
+		.col-lg-6(style='background-color: #0c0c0c; overflow:scroll;')
+			br
+			br
+			br
+			.row
+				.col-1
+				.col-10
+					.row
+						h2 HERE'S WHAT WE FOUND FOR @NUSCOMPUTING
+						br
+						p Based on <a href="http://www.twitter.com/nuscomputing" target="_blank">@NUSComputing</a>'s last 100 tweets, we think that they have an interest in the topic '<b>SPACE</b>'. Here are some top picks that they might like!
+						br
+					.row
+						.col-lg-6
+							.row
+								.col(style='padding: 0px 5px')
+									a(href='#')
+										.cont
+											img.img-fluid.image(src='images/1.jpg')
+											.overlay
+												.text CLICK
+							br
+							.row
+								.col
+									h6 FLY IN THE SKY
+									hr(style='border: thin solid #0f33ff; width:20px;' align='left')
+									p This is what I love, and can't stop loving! I'm told to enjoy every moment, every hour, every minute.
+							br
+						.col-lg-6
+							.row
+								.col(style='padding: 0px 5px')
+									a(href='#')
+										.cont
+											img.img-fluid.image(src='images/2.jpg')
+											.overlay
+												.text CLICK
+							br
+							.row
+								.col
+									h6 EARTH 2.0
+									hr(style='border: thin solid #0f33ff; width: 20px;' align='left')
+									p This is what I love, and can't stop loving! I'm told to enjoy every moment, every hour, every minute.
+							br
+						.col-lg-6
+							.row
+								.col(style='padding: 0px 5px')
+									a(href='#')
+										.cont
+											img.img-fluid.image(src='images/3.jpg')
+											.overlay
+												.text CLICK
+							br
+							.row
+								.col
+									h6 BEYOND THE UNIVERSE
+									hr(style='border: thin solid #0f33ff; width:20px;' align='left')
+									p This is what I love, and can't stop loving! I'm told to enjoy every moment, every hour, every minute.
+							br
+						.col-lg-6
+							.row
+								.col(style='padding: 0px 5px')
+									a(href='#')
+										.cont
+											img.img-fluid.image(src='images/4.jpg')
+											.overlay
+												.text CLICK
+							br
+							.row
+								.col
+									h6 GRAVITY
+									hr(style='border: thin solid #0f33ff; width: 20px;' align='left')
+									p This is what I love, and can't stop loving! I'm told to enjoy every moment, every hour, every minute.
+							br
+						.col-lg-6
+							.row
+								.col(style='padding: 0px 5px')
+									a(href='#')
+										.cont
+											img.img-fluid.image(src='images/5.jpg')
+											.overlay
+												.text CLICK
+							br
+							.row
+								.col
+									h6 UP UP AND AWAY
+									hr(style='border: thin solid #0f33ff; width: 20px;' align='left')
+									p This is what I love, and can't stop loving! I'm told to enjoy every moment, every hour, every minute.
+							br
+						.col-lg-6
+							.row
+								.col(style='padding: 0px 5px')
+									a(href='#')
+										.cont
+											img.img-fluid.image(src='images/6.jpg')
+											.overlay
+												.text CLICK
+							br
+							.row
+								.col
+									h6 100 FOOT ORBIT
+									hr(style='border: thin solid #0f33ff; width: 20px;' align='left')
+									p This is what I love, and can't stop loving! I'm told to enjoy every moment, every hour, every minute.
+							br
+					if tweets
+						.row
+							hr(style='border-top: thin solid #ffffff; width: 100%;')
+							br
+							br
+							h3 Tweets by @#{username}
+							p #{tweets}
+				.col-1
+			br
