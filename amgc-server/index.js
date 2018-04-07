@@ -37,9 +37,10 @@ app.post('/classify', function(req, res) {
 
 	// The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
 	let sampleFile = req.files.sampleFile
+	let fileName = req.files.sampleFile.name
 
 	// Use the mv() method to place the file somewhere on your server
-	let path = 'audio_files/' + req.files.sampleFile.name
+	let path = 'audio_files/' + fileName
 	console.log(path)
 	sampleFile.mv(path, function(err) {
 		if(err)
@@ -53,8 +54,7 @@ app.post('/classify', function(req, res) {
 		scriptPath: '../linear-svm/linear-svm-classifier/',
 		args:
 		[
-			// req.body.filename,	// music file path
-			'blues.0000.au'			// music file path
+			fileName,	// music file path
 		]
 	}
 
@@ -67,7 +67,7 @@ app.post('/classify', function(req, res) {
 			res.render('index', {
 				// filename: req.body.filename,
 				// music_results: results
-				f: 'blues.00000.au',
+				audio_file_name: fileName,
 				music_results: results
 			})
 		}
