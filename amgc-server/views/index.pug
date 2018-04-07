@@ -23,11 +23,11 @@ block content
 					h1(style='font-size:40pt;') AMGC
 					br
 					p(style='font-size:15pt;') Automatic Music Genre Classification of Audio Signals with Machine Learning Approaches
-					form(method='POST', action='/recommend')
+					form(method='POST' encType='multipart/form-data' action='/classify')
 						.form-row
 							.col-5
 								label(for='exampleFormControlFile1') Choose an audio file
-								input#exampleFormControlFile1.form-control-file(type='file')
+								input#exampleFormControlFile1.form-control-file(type='file' name='sampleFile')
 						.form-row
 							.col-5
 								br
@@ -80,17 +80,18 @@ block content
 							.row
 								br
 							.row
-								h5(style='color: #333;')
+								h5(style='color: #fff;')
 									b MORE ABOUT <i>BLUES</i>
-								p(style='text-align: justify; color: #666666;') Blues is a music genre[2] and musical form originated by African Americans in the Deep South of the United States around the end of the 19th century. The genre developed from roots in African musical traditions, African-American work songs, spirituals, and the folk music of white Americans of European heritage.[1] Blues incorporated spirituals, work songs, field hollers, shouts, chants, and rhymed simple narrative ballads.[3] The blues form, ubiquitous in jazz, rhythm and blues and rock and roll, is characterized by the call-and-response pattern, the blues scale and specific chord progressions, of which the twelve-bar blues is the most common. Blue notes (or "worried notes"), usually thirds or fifths flattened in pitch, are also an essential part of the sound. Blues shuffles or walking bass reinforce the trance-like rhythm and form a repetitive effect known as the groove.
+								p(style='text-align: justify; color: #fff;') Blues is a music genre[2] and musical form originated by African Americans in the Deep South of the United States around the end of the 19th century. The genre developed from roots in African musical traditions, African-American work songs, spirituals, and the folk music of white Americans of European heritage.[1] Blues incorporated spirituals, work songs, field hollers, shouts, chants, and rhymed simple narrative ballads.[3] The blues form, ubiquitous in jazz, rhythm and blues and rock and roll, is characterized by the call-and-response pattern, the blues scale and specific chord progressions, of which the twelve-bar blues is the most common. Blue notes (or "worried notes"), usually thirds or fifths flattened in pitch, are also an essential part of the sound. Blues shuffles or walking bass reinforce the trance-like rhythm and form a repetitive effect known as the groove.
 
-								p(style='text-align: justify; color: #555;') Blues as a genre is also characterized by its lyrics, bass lines, and instrumentation. Early traditional blues verses consisted of a single line repeated four times. It was only in the first decades of the 20th century that the most common current structure became standard: the AAB pattern, consisting of a line sung over the four first bars, its repetition over the next four, and then a longer concluding line over the last bars. Early blues frequently took the form of a loose narrative, often relating the racial discrimination and other challenges experienced by African-Americans.
-					if tweets
+								p(style='text-align: justify; color: #fff;') Blues as a genre is also characterized by its lyrics, bass lines, and instrumentation. Early traditional blues verses consisted of a single line repeated four times. It was only in the first decades of the 20th century that the most common current structure became standard: the AAB pattern, consisting of a line sung over the four first bars, its repetition over the next four, and then a longer concluding line over the last bars. Early blues frequently took the form of a loose narrative, often relating the racial discrimination and other challenges experienced by African-Americans.
+					if music_results
 						.row
 							hr(style='border-top: thin solid #ffffff; width: 100%;')
 							br
 							br
-							h3 Tweets by @#{username}
-							p #{tweets}
+							h3 Tweets by #{f}
+						.row
+							p #{music_results}
 				.col-1
 			br

@@ -3,6 +3,7 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
 const pythonShell = require('python-shell')
+const fileUpload = require('express-fileupload')
 
 // Init App
 const app = express()
@@ -10,6 +11,9 @@ const app = express()
 // Load View Engine
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
+
+// File
+app.use(fileUpload())
 
 // Body Parser Middleware
 // parse application/x-www-form-urlencoded
@@ -25,30 +29,46 @@ app.get('/', function(req, res) {
 })
 
 // Recommend Route
-app.post('/recommend', function(req, res) {
-	console.log(req.body)
+app.post('/classify', function(req, res) {
+	if(!req.files)
+		return res.status(400).send('No files were uploaded.')
+
+	console.log(req.files.sampleFile.name)
+
+	// The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+	let sampleFile = req.files.sampleFile
+
+	// Use the mv() method to place the file somewhere on your server
+	let path = 'audio_files/' + req.files.sampleFile.name
+	console.log(path)
+	sampleFile.mv(path, function(err) {
+		if(err)
+			return res.status(500).send(err)
+	})
 
 	// Call twitter-scraper python script
 	var options = {
 		mode: 'text',
 		pythonPath: 'C:/Users/alant/Anaconda3/python.exe',
-		scriptPath: '../twitter-scraper/',
+		scriptPath: '../linear-svm/linear-svm-classifier/',
 		args:
 		[
-			req.body.username,	// username
-			20					// number of tweets
+			// req.body.filename,	// music file path
+			'blues.0000.au'			// music file path
 		]
 	}
 
-	pythonShell.run('main.py', options, function(err, results) {
+	pythonShell.run('linear-svm.py', options, function(err, results) {
 		if(err) {
 			throw err
 		} else {
 			console.log(results)
 
 			res.render('index', {
-				username: req.body.username,
-				tweets: results
+				// filename: req.body.filename,
+				// music_results: results
+				f: 'blues.00000.au',
+				music_results: results
 			})
 		}
 	})
