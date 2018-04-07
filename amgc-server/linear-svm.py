@@ -1,5 +1,4 @@
 import sys
-import unidecode
 import numpy as np
 from sklearn import svm
 from sklearn.model_selection import KFold
@@ -52,6 +51,5 @@ for train_index, test_index in kf.split(X):
 	# print(clf.predict([[0, 10]]))
 
 # Return results to Node server
-result = str(clf.predict([[0, 10]])) + ", " + filename
-print(unidecode.unidecode_expect_nonascii(result))
+print("Predicted: " + str(clf.predict([[0, 10]])))
 sys.stdout.flush()

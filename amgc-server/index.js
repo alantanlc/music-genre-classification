@@ -33,7 +33,7 @@ app.post('/classify', function(req, res) {
 	if(!req.files)
 		return res.status(400).send('No files were uploaded.')
 
-	console.log(req.files.sampleFile.name)
+	// console.log(req.files.sampleFile.name)
 
 	// The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
 	let sampleFile = req.files.sampleFile
@@ -41,7 +41,7 @@ app.post('/classify', function(req, res) {
 
 	// Use the mv() method to place the file somewhere on your server
 	let path = 'audio_files/' + fileName
-	console.log(path)
+	// console.log(path)
 	sampleFile.mv(path, function(err) {
 		if(err)
 			return res.status(500).send(err)
@@ -51,10 +51,10 @@ app.post('/classify', function(req, res) {
 	var options = {
 		mode: 'text',
 		pythonPath: 'C:/Users/alant/Anaconda3/python.exe',
-		scriptPath: '../linear-svm/linear-svm-classifier/',
+		scriptPath: './',
 		args:
 		[
-			fileName,	// music file path
+			path,	// music file path
 		]
 	}
 
@@ -62,7 +62,7 @@ app.post('/classify', function(req, res) {
 		if(err) {
 			throw err
 		} else {
-			console.log(results)
+			console.log(typeof results)
 
 			res.render('index', {
 				// filename: req.body.filename,
