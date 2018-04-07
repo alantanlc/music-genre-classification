@@ -44,101 +44,47 @@ block content
 				.col-1
 				.col-10
 					.row
-						h2 HERE'S WHAT WE FOUND FOR @NUSCOMPUTING
+						h2(style='color: #007bff;') RESULTS
 						br
-						p Based on <a href="http://www.twitter.com/nuscomputing" target="_blank">@NUSComputing</a>'s last 100 tweets, we think that they have an interest in the topic '<b>SPACE</b>'. Here are some top picks that they might like!
-						br
+						p Our Linear Support Vector Machine model predicts with 80% confidence that <b><i>blues.00000.au</i></b> has a genre of <b style='color: #007bff;'><i>BLUES</i></b>.
 					.row
-						.col-lg-6
+						.col-lg
 							.row
-								.col(style='padding: 0px 5px')
-									a(href='#')
-										.cont
-											img.img-fluid.image(src='images/1.jpg')
-											.overlay
-												.text CLICK
-							br
+								table.table.table-hover.table-light(style='color: black;')
+									thead.thead-dark
+										tr
+											th(scope='col') #
+											th(scope='col') Features
+											th(scope='col') Values
+									tbody
+										tr
+											th(scope='row') 1
+											td MFCC
+											td 0.51
+										tr
+											th(scope='row') 2
+											td Average Entropy
+											td 14.02
+										tr
+											th(scope='row') 3
+											td Spectral Centroid
+											td 0.78
+										tr
+											th(scope='row') 3
+											td Spectral Rolloff
+											td 0.32
+										tr
+											th(scope='row') 3
+											td Zero Crossing Rate
+											td 0.65
 							.row
-								.col
-									h6 FLY IN THE SKY
-									hr(style='border: thin solid #0f33ff; width:20px;' align='left')
-									p This is what I love, and can't stop loving! I'm told to enjoy every moment, every hour, every minute.
-							br
-						.col-lg-6
+								br
 							.row
-								.col(style='padding: 0px 5px')
-									a(href='#')
-										.cont
-											img.img-fluid.image(src='images/2.jpg')
-											.overlay
-												.text CLICK
-							br
-							.row
-								.col
-									h6 EARTH 2.0
-									hr(style='border: thin solid #0f33ff; width: 20px;' align='left')
-									p This is what I love, and can't stop loving! I'm told to enjoy every moment, every hour, every minute.
-							br
-						.col-lg-6
-							.row
-								.col(style='padding: 0px 5px')
-									a(href='#')
-										.cont
-											img.img-fluid.image(src='images/3.jpg')
-											.overlay
-												.text CLICK
-							br
-							.row
-								.col
-									h6 BEYOND THE UNIVERSE
-									hr(style='border: thin solid #0f33ff; width:20px;' align='left')
-									p This is what I love, and can't stop loving! I'm told to enjoy every moment, every hour, every minute.
-							br
-						.col-lg-6
-							.row
-								.col(style='padding: 0px 5px')
-									a(href='#')
-										.cont
-											img.img-fluid.image(src='images/4.jpg')
-											.overlay
-												.text CLICK
-							br
-							.row
-								.col
-									h6 GRAVITY
-									hr(style='border: thin solid #0f33ff; width: 20px;' align='left')
-									p This is what I love, and can't stop loving! I'm told to enjoy every moment, every hour, every minute.
-							br
-						.col-lg-6
-							.row
-								.col(style='padding: 0px 5px')
-									a(href='#')
-										.cont
-											img.img-fluid.image(src='images/5.jpg')
-											.overlay
-												.text CLICK
-							br
-							.row
-								.col
-									h6 UP UP AND AWAY
-									hr(style='border: thin solid #0f33ff; width: 20px;' align='left')
-									p This is what I love, and can't stop loving! I'm told to enjoy every moment, every hour, every minute.
-							br
-						.col-lg-6
-							.row
-								.col(style='padding: 0px 5px')
-									a(href='#')
-										.cont
-											img.img-fluid.image(src='images/6.jpg')
-											.overlay
-												.text CLICK
-							br
-							.row
-								.col
-									h6 100 FOOT ORBIT
-									hr(style='border: thin solid #0f33ff; width: 20px;' align='left')
-									p This is what I love, and can't stop loving! I'm told to enjoy every moment, every hour, every minute.
-							br
+								h5(style='color: #333;')
+									b MORE ABOUT <i>BLUES</i>
+								p(style='text-align: justify; color: #666666;') Blues is a music genre[2] and musical form originated by African Americans in the Deep South of the United States around the end of the 19th century. The genre developed from roots in African musical traditions, African-American work songs, spirituals, and the folk music of white Americans of European heritage.[1] Blues incorporated spirituals, work songs, field hollers, shouts, chants, and rhymed simple narrative ballads.[3] The blues form, ubiquitous in jazz, rhythm and blues and rock and roll, is characterized by the call-and-response pattern, the blues scale and specific chord progressions, of which the twelve-bar blues is the most common. Blue notes (or "worried notes"), usually thirds or fifths flattened in pitch, are also an essential part of the sound. Blues shuffles or walking bass reinforce the trance-like rhythm and form a repetitive effect known as the groove.
+
+								p(style='text-align: justify; color: #555;') Blues as a genre is also characterized by its lyrics, bass lines, and instrumentation. Early traditional blues verses consisted of a single line repeated four times. It was only in the first decades of the 20th century that the most common current structure became standard: the AAB pattern, consisting of a line sung over the four first bars, its repetition over the next four, and then a longer concluding line over the last bars. Early blues frequently took the form of a loose narrative, often relating the racial discrimination and other challenges experienced by African-Americans.
 					if tweets
 						.row
 							hr(style='border-top: thin solid #ffffff; width: 100%;')
