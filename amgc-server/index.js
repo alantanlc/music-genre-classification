@@ -69,6 +69,7 @@ app.post('/classify', function(req, res) {
 				audio_file_name: jsonResults.filename,
 				image: jsonResults.image,
 				label: jsonResults.label,
+				values: jsonResults.values,
 				music_results: results
 			})
 		}

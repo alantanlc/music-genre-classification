@@ -16,10 +16,12 @@ def main():
 
 	# Load audio
 	audioFileName = 'audio-files/' + sys.argv[1]
+	#audioFileName = '../../amgc-server/audio-files/' + sys.argv[1]
 	data, sr = librosa.load(audioFileName)
 
 	# Generate image of audio plot
 	imageName = 'public/images/' + sys.argv[1] + '.png'
+	#imageName = '../../amgc-server/public/images/' + sys.argv[1] + '.png'
 	py.figure()
 	py.plot(data)
 	py.title('Time Domain Signal of ' + sys.argv[1])
@@ -32,11 +34,12 @@ def main():
 
 	# Load features and labels
 	trainFileName = '../features/combined.txt'
+	#trainFileName = '../../features/combined.txt'
 	with open(trainFileName, 'r') as f:
 		X = f.readlines()
 	X = [x.strip().split(',') for x in X]
 	y = np.array([genres.index(x.pop()) for x in X])
-	X = np.array(X)
+	X = np.array(X, dtype=float)
 
 	# Train classifier
 	clf = sklearn.svm.SVC(kernel='linear', C=1.0)
@@ -51,14 +54,7 @@ def main():
 		'filename': sys.argv[1],
 		'image': sys.argv[1] + '.png',
 		'label': genres[label],
-		'features': {
-			'AVG_ENT': test[0],
-			'STD_DEV_ENT': test[1],
-			'MAX_ENT': test[2],
-			'MIN_ENT': test[3],
-			'MAX_DIFF_ENT': test[4],
-			'MEAN_MFCC_0': test[5]
-		}
+		'values': list(test)
 	}
 	print(json.dumps(jsonResult))
 
