@@ -42,4 +42,6 @@ tmtagsHistory
 
 # Additional sources #
 *.au
-datasetTest
+datasetTest/
+amgc-server/audio-files/
+amgc-server/audio-figures/

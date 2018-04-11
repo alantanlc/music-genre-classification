@@ -40,7 +40,7 @@ app.post('/classify', function(req, res) {
 	let fileName = req.files.sampleFile.name
 
 	// Use the mv() method to place the file somewhere on your server
-	let path = 'audio_files/' + fileName
+	let path = 'audio-files/' + fileName
 	// console.log(path)
 	sampleFile.mv(path, function(err) {
 		if(err)
@@ -54,20 +54,21 @@ app.post('/classify', function(req, res) {
 		scriptPath: './',
 		args:
 		[
-			path,	// music file path
+			fileName,	// music file path
 		]
 	}
 
-	pythonShell.run('linear-svm.py', options, function(err, results) {
+	pythonShell.run('../classifiers/linear-svm-classifier/linear-svm-combined.py', options, function(err, results) {
 		if(err) {
 			throw err
 		} else {
-			console.log(typeof results)
+			let jsonResults = JSON.parse(results)
+			console.log(jsonResults)
 
 			res.render('index', {
-				// filename: req.body.filename,
-				// music_results: results
-				audio_file_name: fileName,
+				audio_file_name: jsonResults.filename,
+				image: jsonResults.image,
+				label: jsonResults.label,
 				music_results: results
 			})
 		}
