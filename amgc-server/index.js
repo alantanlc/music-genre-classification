@@ -58,7 +58,7 @@ app.post('/classify', function(req, res) {
 		]
 	}
 
-	pythonShell.run('../classifiers/linear-svm-classifier/linear-svm-combined.py', options, function(err, results) {
+	pythonShell.run('../classifiers/linear-svm-classifier/linear-svm-demo.py', options, function(err, results) {
 		if(err) {
 			throw err
 		} else {

@@ -1,35 +1,23 @@
-import sys
 import numpy as np
 from sklearn import svm
 from sklearn.model_selection import KFold
 
-# Get filename from command line argument
-filename = str(sys.argv[1])
+# Genres
+genres = ['blues','classical','country','disco','hiphop','jazz','metal','pop','reggae','rock']
 
-# Feature list
-X = np.array([
-	[1, 1],
-	[1, 2],
-	[2, 1],
-	[2, 2],
-	[8, 8],
-	[8, 9],
-	[9, 8],
-	[9, 9],
-	[1, 8],
-	[1, 9],
-	[2, 8],
-	[2, 9]
-])
-
-# Labels
-y = np.array([1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3])
+# Load features and labels
+filename = '..\\..\\features\\combined.txt'
+with open(filename, 'r') as f:
+	X = f.readlines()
+X = [x.strip().split(',') for x in X]
+y = np.array([genres.index(x.pop()) for x in X])
+X = np.array(X, dtype=float)
 
 # Define classifier
 clf = svm.SVC(kernel='linear', C=1.0)
 
 # KFold
-kf = KFold(n_splits=2, shuffle=True)
+kf = KFold(n_splits=10, shuffle=True)
 for train_index, test_index in kf.split(X):
 	# Split data to train and test set
 	# print("TRAIN: \t\t" + str(train_index))
@@ -45,11 +33,7 @@ for train_index, test_index in kf.split(X):
 	# print("Predicted: \t" + str(clf.predict(X_test)))
 
 	# Print accuracy
-	# print("Accuracy: \t" + str(clf.score(X_test, y_test)) + "\n")
+	print("Accuracy: \t" + str(clf.score(X_test, y_test)))
 
 	# Example usage to test an instance
 	# print(clf.predict([[0, 10]]))
-
-# Return results to Node server
-print("Predicted: " + str(clf.predict([[0, 10]])))
-sys.stdout.flush()

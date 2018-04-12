@@ -8,7 +8,7 @@ import matplotlib.pyplot as py
 def main():
 	# Get filename from command line argument
 	if sys.argv.__len__() != 2:
-		print("Example usage: linear-svm-combined.py <au_file_name>")
+		print("Example usage: linear-svm-demo.py <au_file_name>")
 		return
 
 	# Genres
