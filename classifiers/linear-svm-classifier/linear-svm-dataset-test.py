@@ -1,3 +1,4 @@
+import pickle
 import numpy as np
 from sklearn import svm
 
@@ -20,10 +21,9 @@ predictX = [x.strip().split(',') for x in predictX]
 predictX = np.array(predictX, dtype=float)
 
 # Define classifier
-clf = svm.SVC(kernel='linear', C=1.0)
-
-# Train classifier
-clf.fit(trainX, trainY)
+modelFileName = 'linear-svm-model.pkl'
+with open(modelFileName,'rb') as f:
+	clf = pickle.load(f)
 
 # Predict datasetTest
 predictY = clf.predict([predictX])

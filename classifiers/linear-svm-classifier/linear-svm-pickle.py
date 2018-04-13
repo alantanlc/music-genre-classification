@@ -20,12 +20,13 @@ clf = svm.SVC(kernel='linear', C=1.0)
 clf.fit(X, y)
 
 # Save model using pickle
-fileName = 'linear-svm-model.pkl'
-with open(fileName, 'wb') as f:
+modelFileName = 'linear-svm-model.pkl'
+with open(modelFileName, 'wb') as f:
 	pickle.dump(clf, f)
 
 # Load model using pickle
-# with open(fileName,'rb') as f:
-# 	clf2 = pickle.load(f)
+# modelFileName = 'linear-svm-model.pkl'
+# with open(modelFileName,'rb') as f:
+# 	clf = pickle.load(f)
 
 print('Program completed!')
