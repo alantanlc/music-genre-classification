@@ -1,5 +1,6 @@
 import sys
 import json
+import pickle
 import librosa
 import numpy as np
 import sklearn.svm
@@ -48,12 +49,13 @@ def main():
 		N = f.readlines()
 	N = [n.strip() for n in N]
 
-	# Train classifier
-	clf = sklearn.svm.SVC(kernel='linear', C=1.0)
-	clf.fit(X, y)
+	# Load model using pickle
+	modelFileName = 'linear-svm-model.pkl'
+	with open(modelFileName, 'rb') as f:
+		clf = pickle.load(f)
 
 	# Predict
-	test = X[0]
+	test = X[-2]
 	label = int(clf.predict([test]))
 
 	# Return results to node server

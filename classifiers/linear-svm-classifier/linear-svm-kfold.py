@@ -1,3 +1,4 @@
+import pickle
 import numpy as np
 from sklearn import svm
 from sklearn.model_selection import KFold
@@ -6,15 +7,17 @@ from sklearn.model_selection import KFold
 genres = ['blues','classical','country','disco','hiphop','jazz','metal','pop','reggae','rock']
 
 # Load features and labels
-filename = '..\\..\\features\\combined.txt'
-with open(filename, 'r') as f:
+trainFileName = '..\\..\\features\\combined.txt'
+with open(trainFileName, 'r') as f:
 	X = f.readlines()
 X = [x.strip().split(',') for x in X]
 y = np.array([genres.index(x.pop()) for x in X])
 X = np.array(X, dtype=float)
 
-# Define classifier
-clf = svm.SVC(kernel='linear', C=1.0)
+# Load model using pickle
+modelFileName = 'linear-svm-model.pkl'
+with open(modelFileName,'rb') as f:
+	clf = pickle.load(f)
 
 # KFold
 kf = KFold(n_splits=10, shuffle=True)
