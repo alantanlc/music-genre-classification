@@ -7,7 +7,7 @@ from sklearn.model_selection import KFold
 genres = ['blues','classical','country','disco','hiphop','jazz','metal','pop','reggae','rock']
 
 # Load features and labels
-trainFileName = '..\\..\\features\\combined.txt'
+trainFileName = '../../features/train.txt'
 with open(trainFileName, 'r') as f:
 	X = f.readlines()
 X = [x.strip().split(',') for x in X]

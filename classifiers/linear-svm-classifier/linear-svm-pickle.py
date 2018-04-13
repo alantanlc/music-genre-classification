@@ -6,7 +6,7 @@ from sklearn import svm
 genres = ['blues','classical','country','disco','hiphop','jazz','metal','pop','reggae','rock']
 
 # Load features and labels
-fileName = '..\\..\\features\\combined.txt'
+fileName = '../../features/train.txt'
 with open(fileName, 'r') as f:
 	X = f.readlines()
 X = [x.strip().split(',') for x in X]
