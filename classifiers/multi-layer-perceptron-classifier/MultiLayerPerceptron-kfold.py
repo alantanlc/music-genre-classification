@@ -1,5 +1,6 @@
 import pickle
 import numpy as np
+from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import KFold
 from sklearn.preprocessing import StandardScaler
 
@@ -26,8 +27,10 @@ scaler.fit(X)
 X = scaler.transform(X)
 # KFold
 kf = KFold(n_splits=10, shuffle=True)
-result=[]
+result = []
+rates = []
 for train_index, test_index in kf.split(X):
+    tp_rate = []
     # Split data to train and test set
     # print("TRAIN: \t\t" + str(train_index))
     # print("TEST: \t\t" + str(test_index))
@@ -38,6 +41,35 @@ for train_index, test_index in kf.split(X):
     mlp.fit(X_train, y_train)
     # Print accuracy
     print("Accuracy: \t" + str(mlp.score(X_test, y_test)))
-    result.append(mlp.score(X_test,y_test))
+    result.append(mlp.score(X_test, y_test))
 
-print(np.mean(result))
+    # I make the predictions
+    predicted = mlp.predict(X_test)
+
+    # I obtain the confusion matrix
+    cm = confusion_matrix(y_test, predicted)
+    # rate calculation
+    i = 0
+    for row in cm:
+        current = 0
+        TP = 0
+        FP = 0
+        for g in row:
+            if current == i:
+                TP = g
+            else:
+                FP = FP + g
+            current = current + 1
+        tp_rate.append(TP / (TP + FP))
+        i = i + 1
+    rates.append(tp_rate)
+
+rates = np.round(np.mean(rates, axis=0),3)
+print("")
+print("accuracy mean:", np.mean(result))
+i=0
+for r in rates:
+   print(genres[i],r)
+   i=i+1
+
+
