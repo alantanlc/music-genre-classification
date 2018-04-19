@@ -58,7 +58,7 @@ app.post('/classify', function(req, res) {
 		]
 	}
 
-	pythonShell.run('../classifiers/linear-svm-classifier/linear-svm-demo.py', options, function(err, results) {
+	pythonShell.run('./classifier/linear-svm-demo.py', options, function(err, results) {
 		if(err) {
 			throw err
 		} else {
@@ -71,8 +71,7 @@ app.post('/classify', function(req, res) {
 				label: jsonResults.label,
 				features: jsonResults.features,
 				values: jsonResults.values,
-				music_results: results,
-				confidence: jsonResults.confidence
+				music_results: results
 			})
 		}
 	})
