@@ -4,6 +4,7 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const pythonShell = require('python-shell')
 const fileUpload = require('express-fileupload')
+var player = require('play-sound')(opts = { "player":"cmdmp3"})
 
 // Init App
 const app = express()
@@ -33,7 +34,7 @@ app.post('/classify', function(req, res) {
 	if(!req.files)
 		return res.status(400).send('No files were uploaded.')
 
-	// console.log(req.files.sampleFile.name)
+	console.log(req.files.sampleFile.name)
 
 	// The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
 	let sampleFile = req.files.sampleFile
@@ -65,13 +66,19 @@ app.post('/classify', function(req, res) {
 			let jsonResults = JSON.parse(results)
 			console.log(jsonResults)
 
+			player.play('audio-files/'+jsonResults.filename, function(err) {
+				if(err) throw err
+			})
+
 			res.render('index', {
 				audio_file_name: jsonResults.filename,
-				image: jsonResults.image,
+				time_image: jsonResults.time_image,
+				entropy_image: jsonResults.entropy_image,
+				mfcc_image: jsonResults.mfcc_image,
 				label: jsonResults.label,
 				features: jsonResults.features,
 				values: jsonResults.values,
-				music_results: results
+				wiki: jsonResults.wiki
 			})
 		}
 	})

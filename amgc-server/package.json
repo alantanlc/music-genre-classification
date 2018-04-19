@@ -12,6 +12,7 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
     "express-fileupload": "^0.4.0",
+    "play-sound": "^1.1.2",
     "pug": "^2.0.1",
     "python-shell": "^0.5.0"
   }
