@@ -64,7 +64,7 @@ app.post('/classify', function(req, res) {
 			throw err
 		} else {
 			let jsonResults = JSON.parse(results)
-			console.log(jsonResults)
+			// console.log(jsonResults)
 
 			player.play('audio-files/'+jsonResults.filename, function(err) {
 				if(err) throw err
@@ -85,6 +85,6 @@ app.post('/classify', function(req, res) {
 })
 
 // Start server on port 3000
-app.listen(8080, function() {
+app.listen(8080, '127.0.0.1', function() {
 	console.log('Server started on port 8080...')
 })

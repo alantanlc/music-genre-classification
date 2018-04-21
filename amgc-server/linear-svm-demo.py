@@ -22,7 +22,6 @@ def main():
 
 	# Generate image of audio plot
 	timeImageName = 'public/images/' + sys.argv[1] + '-time.png'
-	# imageName = '../../amgc-server/public/images/' + sys.argv[1] + '.png'
 	py.figure()
 	py.plot(data)
 	py.title('Time Domain Signal')
@@ -53,7 +52,6 @@ def main():
 
 	# Load feature name
 	featuresNameFileName = '../features/features-name.txt'
-	# featuresNameFileName = '../../features/features-name.txt'
 	with open(featuresNameFileName, 'r') as f:
 		N = f.readlines()
 	N = [n.strip() for n in N]

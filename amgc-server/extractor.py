@@ -109,7 +109,7 @@ def get_features(y, sr):
 	features = features + extract_mfcc_features(y, sr)
 
 	# Format result
-	features = [format(x, '.6f') for x in features]
+	features = [float(format(x, '.6f')) for x in features]
 
 	# Return features
 	return features
@@ -120,19 +120,12 @@ def main():
 
 	# Load audio using librosa
 	y, sr = librosa.load(filename)
-	features = []
 
 	# Extract entropy
-	features = features + extract_entropy(y, sr)
-
-	# Extract mfcc
-	features = features + extract_mfcc_features(y, sr)
-
-	# Format result
-	features = [format(x, '.6f') for x in features]
+	features = get_features(y, sr)
 
 	# Print
-	print(','.join(features))
+	print(features)
 
 if __name__ == "__main__":
 	main()
