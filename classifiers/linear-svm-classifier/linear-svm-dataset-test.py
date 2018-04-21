@@ -30,7 +30,7 @@ predictY = clf.predict(predictX)
 predictY = [genres[y]+'\n' for y in predictY]
 
 # Write to file
-predictFileName = 'predict-labels.txt'
+predictFileName = 'predictions.txt'
 with open(predictFileName, 'w') as f:
 	f.writelines(predictY)
 

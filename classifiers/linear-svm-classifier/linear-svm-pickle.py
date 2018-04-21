@@ -24,9 +24,4 @@ modelFileName = 'linear-svm-model.pkl'
 with open(modelFileName, 'wb') as f:
 	pickle.dump(clf, f)
 
-# Load model using pickle
-# modelFileName = 'linear-svm-model.pkl'
-# with open(modelFileName,'rb') as f:
-# 	clf = pickle.load(f)
-
 print('Program completed!')

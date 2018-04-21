@@ -31,12 +31,5 @@ for train_index, test_index in kf.split(X):
 	# Train
 	clf.fit(X_train, y_train)
 
-	# Test
-	# print("Actual: \t" + str(y_test))
-	# print("Predicted: \t" + str(clf.predict(X_test)))
-
 	# Print accuracy
 	print("Accuracy: \t" + str(clf.score(X_test, y_test)))
-
-	# Example usage to test an instance
-	# print(clf.predict([[0, 10]]))

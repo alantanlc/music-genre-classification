@@ -27,8 +27,6 @@ scaler.fit(X_train)
 # apply the transformations to the data:
 X_train = scaler.transform(X_train)
 
-
-
 # Define classifier
 clf = svm.SVC(kernel='linear', C=1.0)
 
@@ -39,10 +37,5 @@ clf.fit(X, y)
 modelFileName = 'linear-svm-model.pkl'
 with open(modelFileName, 'wb') as f:
 	pickle.dump(clf, f)
-
-# Load model using pickle
-# modelFileName = 'linear-svm-model.pkl'
-# with open(modelFileName,'rb') as f:
-# 	clf = pickle.load(f)
 
 print('Program completed!')
