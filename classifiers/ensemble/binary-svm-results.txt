@@ -1,0 +1,34 @@
+rock blues 0.84
+rock classical 0.99
+rock country 0.77
+rock hiphop 0.88
+rock jazz 0.94
+rock metal 0.92
+rock pop 0.88
+rock disco 0.81
+rock reggae 0.83
+Average: 0.87
+
+blues jazz 0.94
+blues metal 0.96
+blues pop 1.0
+blues disco 0.91
+blues reggae 0.86
+
+classical jazz 0.92
+classical metal 0.99
+classical pop 0.97
+classical disco 0.98
+classical reggae 0.97
+
+country jazz 0.91
+country metal 0.98
+country pop 0.87
+country disco 0.90
+country reggae 0.89
+
+hiphop jazz 1.0
+hiphop metal 0.97
+hiphop pop 0.95
+hiphop disco 0.83
+hiphop reggae 0.78
