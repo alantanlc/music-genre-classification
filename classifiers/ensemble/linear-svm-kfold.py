@@ -7,7 +7,7 @@ from sklearn.model_selection import KFold
 genres = ['blues','classical','country','disco','hiphop','jazz','metal','pop','reggae','rock']
 
 # Load features and labels
-trainFileName = '../../features/train.txt'
+trainFileName = '../../features/train-features.txt'
 with open(trainFileName, 'r') as f:
 	X = f.readlines()
 X = [x.strip().split(',') for x in X]
@@ -18,6 +18,7 @@ X = np.array(X, dtype=float)
 clf = svm.SVC(kernel='linear', C=1.0)
 
 # KFold
+accuracy = []
 kf = KFold(n_splits=10, shuffle=True)
 for train_index, test_index in kf.split(X):
 	# Split data to train and test set
@@ -30,4 +31,9 @@ for train_index, test_index in kf.split(X):
 	clf.fit(X_train, y_train)
 
 	# Print accuracy
-	print("Accuracy: \t" + str(clf.score(X_test, y_test)))
+	acc = clf.score(X_test, y_test)
+	accuracy.append(acc)
+	print("Accuracy: \t" + str(acc))
+
+# Print average accuracy
+print("Total Average Accuracy: \t" + str(np.mean(accuracy)))

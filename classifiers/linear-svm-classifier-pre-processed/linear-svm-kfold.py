@@ -14,15 +14,16 @@ with open(trainFileName, 'r') as f:
 X = [x.strip().split(',') for x in X]
 y = np.array([genres.index(x.pop()) for x in X])
 X = np.array(X, dtype=float)
+
 # pre processing
 scaler = StandardScaler()
 scaler.fit(X)
+
 # apply the transformations to the data:
 X = scaler.transform(X)
-# Load model using pickle
-modelFileName = 'linear-svm-model.pkl'
-with open(modelFileName, 'rb') as f:
-    clf = pickle.load(f)
+
+# Define classifier
+clf = svm.SVC(kernel='linear', C=1.0)
 
 score = []
 rates = []
