@@ -2,6 +2,8 @@ import pickle
 import numpy as np
 from sklearn import svm
 from sklearn.preprocessing import StandardScaler
+
+
 # Genres
 genres = ['blues','classical','country','disco','hiphop','jazz','metal','pop','reggae','rock']
 
@@ -13,13 +15,10 @@ X = [x.strip().split(',') for x in X]
 y = np.array([genres.index(x.pop()) for x in X])
 X = np.array(X, dtype=float)
 
-# train test split
-X_train=X
-
-# preprocessing phase
+# Preprocessing phase
 scaler = StandardScaler()
-scaler.fit(X_train)
-X_train = scaler.transform(X_train)
+scaler.fit(X)
+X = scaler.transform(X)
 
 # Define classifier
 clf = svm.SVC(kernel='linear', C=1.0)
