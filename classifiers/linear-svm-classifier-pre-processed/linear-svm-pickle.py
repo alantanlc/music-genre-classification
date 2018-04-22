@@ -13,18 +13,12 @@ X = [x.strip().split(',') for x in X]
 y = np.array([genres.index(x.pop()) for x in X])
 X = np.array(X, dtype=float)
 
-
 # train test split
-#X_train, X_test, y_train, y_test = train_test_split(X, y)
 X_train=X
-#y_train=y
 
 # preprocessing phase
 scaler = StandardScaler()
 scaler.fit(X_train)
-# StandardScaler(copy=True, with_mean=True, with_std=True)
-
-# apply the transformations to the data:
 X_train = scaler.transform(X_train)
 
 # Define classifier
@@ -34,8 +28,13 @@ clf = svm.SVC(kernel='linear', C=1.0)
 clf.fit(X, y)
 
 # Save model using pickle
-modelFileName = 'linear-svm-model.pkl'
+modelFileName = 'linear-svm-model-preprocessed.pkl'
 with open(modelFileName, 'wb') as f:
 	pickle.dump(clf, f)
+
+# Save scaler using pickle
+scalerFileName = 'scaler-preprocessed.pkl'
+with open(scalerFileName, 'wb') as f:
+	pickle.dump(scaler, f)
 
 print('Program completed!')

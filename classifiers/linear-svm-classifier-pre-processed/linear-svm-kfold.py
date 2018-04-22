@@ -18,8 +18,6 @@ X = np.array(X, dtype=float)
 # pre processing
 scaler = StandardScaler()
 scaler.fit(X)
-
-# apply the transformations to the data:
 X = scaler.transform(X)
 
 # Define classifier
@@ -31,29 +29,22 @@ rates = []
 kf = KFold(n_splits=10, shuffle=True)
 for train_index, test_index in kf.split(X):
     # Split data to train and test set
-    # print("TRAIN: \t\t" + str(train_index))
-    # print("TEST: \t\t" + str(test_index))
     X_train, X_test = X[train_index], X[test_index]
     y_train, y_test = y[train_index], y[test_index]
 
     # Train
     clf.fit(X_train, y_train)
 
-    # Test
-    # print("Actual: \t" + str(y_test))
-    # print("Predicted: \t" + str(clf.predict(X_test)))
-
     # Print accuracy
     score.append(clf.score(X_test, y_test))
     print("Accuracy: \t" + str(clf.score(X_test, y_test)))
 
-    # Example usage to test an instance
-    # print(clf.predict([[0, 10]]))
     # I make the predictions
     predicted = clf.predict(X_test)
 
     # I obtain the confusion matrix
     cm = confusion_matrix(y_test, predicted)
+
     # rate calculation
     tp_rate = []
     i = 0
