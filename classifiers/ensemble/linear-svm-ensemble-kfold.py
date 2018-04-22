@@ -1,4 +1,3 @@
-import pickle
 import numpy as np
 from sklearn import svm
 from sklearn.model_selection import KFold
@@ -12,7 +11,7 @@ genres_3 = ['rock','reggae']
 X_1 = []
 for g in genres_1:
 	# Load features and labels
-	trainFileName = 'features-' + g + '.arff'
+	trainFileName = './features/features-' + g + '.arff'
 	with open(trainFileName, 'r') as f:
 		X = f.readlines()
 		X_1 = X_1 + X
@@ -24,7 +23,7 @@ X_1= np.array(X_1, dtype=float)
 X_2 = []
 for g in genres_2:
 	# Load features and labels
-	trainFileName = 'features-' + g + '.arff'
+	trainFileName = './features/features-' + g + '.arff'
 	with open(trainFileName, 'r') as f:
 		X = f.readlines()
 		X_2 = X_2 + X
@@ -36,7 +35,7 @@ X_2= np.array(X_2, dtype=float)
 X_3 = []
 for g in genres_3:
 	# Load features and labels
-	trainFileName = 'features-' + g + '.arff'
+	trainFileName = './features/features-' + g + '.arff'
 	with open(trainFileName, 'r') as f:
 		X = f.readlines()
 		X_3 = X_3 + X
