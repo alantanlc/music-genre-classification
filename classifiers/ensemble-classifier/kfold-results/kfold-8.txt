@@ -1,0 +1,121 @@
+Total average accuracy: 0.62
+
+blues
+blues
+country
+disco
+disco
+blues
+disco
+blues
+blues
+rock
+Accuracy blues: 0.5
+
+classical
+classical
+classical
+classical
+classical
+classical
+classical
+classical
+classical
+classical
+Accuracy classical: 1.0
+
+classical
+rock
+rock
+blues
+rock
+country
+country
+blues
+country
+hiphop
+Accuracy country: 0.4
+
+disco
+reggae
+disco
+disco
+rock
+disco
+metal
+reggae
+rock
+country
+Accuracy disco: 0.4
+
+hiphop
+hiphop
+hiphop
+hiphop
+hiphop
+pop
+pop
+pop
+hiphop
+country
+Accuracy hiphop: 0.6
+
+jazz
+jazz
+jazz
+jazz
+jazz
+jazz
+country
+jazz
+jazz
+jazz
+Accuracy jazz: 0.9
+
+disco
+metal
+metal
+metal
+metal
+metal
+metal
+metal
+metal
+metal
+Accuracy metal: 0.9
+
+pop
+disco
+pop
+pop
+pop
+pop
+pop
+pop
+rock
+pop
+Accuracy pop: 0.8
+
+reggae
+disco
+hiphop
+hiphop
+pop
+hiphop
+reggae
+hiphop
+hiphop
+reggae
+Accuracy reggae: 0.3
+
+blues
+rock
+blues
+blues
+blues
+blues
+rock
+blues
+rock
+rock
+Accuracy rock: 0.4
