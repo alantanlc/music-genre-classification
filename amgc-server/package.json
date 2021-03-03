@@ -13,7 +13,7 @@
     "express": "^4.16.3",
     "express-fileupload": "^1.1.9",
     "play-sound": "^1.1.2",
-    "pug": "^2.0.1",
+    "pug": "^3.0.1",
     "python-shell": "^0.5.0"
   }
 }
