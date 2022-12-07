@@ -9,8 +9,8 @@
   "author": "Tan Lai Chian Alan",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.3",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
     "express-fileupload": "^1.1.9",
     "play-sound": "^1.1.2",
     "pug": "^2.0.1",
